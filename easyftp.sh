@@ -106,7 +106,7 @@ GetDir()	#$1:remote dir;	$2:local dir
 			GetDir "$srcdir/${1:1}" "$destdir/${1:1}"
 		else
 			echo "Copy "$srcdir/${1:1}" to "$destdir/${1:1}
-			GetFile "$srcdir/${1:1}" "$destdir/${1:1}"
+			GetBFile "$srcdir/${1:1}" "$destdir/${1:1}"
 		fi
 		shift
 	done
@@ -128,7 +128,7 @@ SendDir()
 	do
 		if [ ! -d "$srcdir/$1" ]
 			then
-			SendFile "$srcdir/$1" "$destdir/$1"
+			SendBFile "$srcdir/$1" "$destdir/$1"
 		elif [ "$1" != "." -a "$1" != ".." ]
 			then
 			SendDir "$srcdir/$1" "$destdir/$1"
